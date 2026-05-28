@@ -1,25 +1,18 @@
-# James Leathers IV Portfolio Website
+# James N Leathers IV — Project Portfolio
 
-Static portfolio website inspired by the approved dark Boeing/Purdue-style concept.
+Personal engineering project portfolio highlighting work in avionics, software deployment, embedded systems, PCB design, wireless communication, automation, and self-hosted systems.
 
-## Files
+## Live Site
 
-- `index.html` — page structure/content
-- `styles.css` — full responsive visual design
-- `script.js` — active navigation behavior
+https://jleathers4.github.io
 
-## Run locally
+## Featured Projects
 
-Open `index.html` directly in a browser, or run:
+* AI Surveillance Server
+* Smart Mirror
+* Cummins Senior Capstone
+* Portfolio Website
 
-```bash
-python -m http.server 8000
-```
+## Notes
 
-Then open `http://localhost:8000`.
-
-## Replace next
-
-1. Add a real `resume.pdf` in the same folder.
-2. Replace CSS-generated visuals with real project photos/screenshots.
-3. Add project detail pages when you are ready.
+This repository contains the static website files for my personal portfolio. Project pages are written to explain the problem, architecture, implementation, verification, and lessons learned for each system.

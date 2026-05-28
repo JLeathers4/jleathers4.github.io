@@ -710,3 +710,229 @@
 .ai-server-hero .project-hero-visual img{
   max-height:520px;
 }
+
+
+/* =========================================================
+   Mobile project-page fixes
+   ========================================================= */
+@media (max-width: 768px){
+  .project-page{
+    overflow-x:hidden !important;
+  }
+
+  .project-hero{
+    display:grid !important;
+    grid-template-columns:1fr !important;
+    gap:1.4rem !important;
+    padding:2.25rem 1.35rem 2.4rem !important;
+  }
+
+  .back-link{
+    margin-bottom:.8rem !important;
+    font-size:1.05rem !important;
+  }
+
+  .status-label{
+    vertical-align:middle !important;
+    margin-left:.15rem !important;
+  }
+
+  .project-hero h1{
+    font-size:clamp(4.2rem,19vw,6.5rem) !important;
+    line-height:.84 !important;
+    max-width:100% !important;
+    overflow-wrap:break-word !important;
+  }
+
+  .project-hero p{
+    font-size:1.03rem !important;
+    line-height:1.55 !important;
+  }
+
+  .project-hero-tags{
+    gap:.55rem !important;
+  }
+
+  .project-hero-tags span{
+    font-size:.95rem !important;
+    padding:.5rem .72rem !important;
+  }
+
+  .project-hero-visual{
+    border-radius:14px !important;
+  }
+
+  .project-hero-visual img{
+    width:100% !important;
+    height:auto !important;
+    max-height:none !important;
+    object-fit:contain !important;
+  }
+
+  .project-tabs-section{
+    padding:1.55rem 1.35rem 2.6rem !important;
+  }
+
+  .project-tabs{
+    display:flex !important;
+    flex-wrap:nowrap !important;
+    gap:.65rem !important;
+    overflow-x:auto !important;
+    -webkit-overflow-scrolling:touch !important;
+    padding:.2rem 0 1rem !important;
+    margin-bottom:1.25rem !important;
+    scrollbar-width:none !important;
+  }
+
+  .project-tabs::-webkit-scrollbar{
+    display:none !important;
+  }
+
+  .tab-button{
+    flex:0 0 auto !important;
+    white-space:nowrap !important;
+    font-size:.98rem !important;
+    padding:.55rem .82rem !important;
+  }
+
+  .tab-panel{
+    padding:1.25rem !important;
+    border-radius:14px !important;
+    min-height:0 !important;
+  }
+
+  .tab-panel h2,
+  .ai-section-card h2{
+    font-size:clamp(1.85rem,9vw,2.55rem) !important;
+    line-height:.95 !important;
+  }
+
+  .tab-panel p,
+  .ai-section-card p,
+  .project-table,
+  .project-table td,
+  .project-table th{
+    font-size:1rem !important;
+    line-height:1.55 !important;
+  }
+
+  .tab-grid,
+  .problem-list,
+  .stack-grid,
+  .step-list,
+  .verification-grid,
+  .learned-callouts,
+  .architecture-notes,
+  .visual-pair{
+    grid-template-columns:1fr !important;
+  }
+
+  .project-facts div{
+    display:block !important;
+  }
+
+  .project-facts dd{
+    text-align:left !important;
+    margin-top:.2rem !important;
+  }
+
+  .project-table-wrap,
+  .table-wrap{
+    overflow-x:auto !important;
+    -webkit-overflow-scrolling:touch !important;
+  }
+
+  .project-table,
+  table{
+    min-width:640px;
+  }
+
+  .visual-pair img{
+    width:100% !important;
+    height:auto !important;
+    object-fit:contain !important;
+  }
+
+  .visual-pair figure,
+  figure{
+    margin-left:0 !important;
+    margin-right:0 !important;
+  }
+
+  .visual-pair figcaption,
+  figcaption{
+    font-size:.92rem !important;
+    line-height:1.4 !important;
+  }
+
+  /* AI Surveillance architecture: stack cleanly and avoid clipped connector lines */
+  .ai-architecture-card,
+  .ai-section-card{
+    padding:1.25rem !important;
+    border-radius:14px !important;
+  }
+
+  .ai-architecture-card h2{
+    font-size:clamp(1.85rem,9vw,2.55rem) !important;
+  }
+
+  .ai-architecture-card > p{
+    font-size:1rem !important;
+    line-height:1.55 !important;
+  }
+
+  .topology-diagram{
+    display:flex !important;
+    flex-direction:column !important;
+    align-items:stretch !important;
+    gap:.95rem !important;
+    margin-top:1.3rem !important;
+  }
+
+  .topology-node,
+  .topology-root,
+  .topology-branches > *{
+    width:100% !important;
+    max-width:100% !important;
+    min-width:0 !important;
+  }
+
+  .topology-branches{
+    display:grid !important;
+    grid-template-columns:1fr !important;
+    gap:.9rem !important;
+  }
+
+  .topology-node::before,
+  .topology-node::after,
+  .topology-branches::before,
+  .topology-branches::after{
+    display:none !important;
+  }
+
+  .service-map-grid,
+  .ai-problem-list,
+  .ai-role-steps,
+  .ai-implementation-steps,
+  .ai-stack-grid,
+  .ai-testing-grid,
+  .ai-learned-grid{
+    grid-template-columns:1fr !important;
+  }
+}
+
+@media (max-width: 420px){
+  .project-hero{
+    padding-left:1.15rem !important;
+    padding-right:1.15rem !important;
+  }
+
+  .project-tabs-section{
+    padding-left:1.15rem !important;
+    padding-right:1.15rem !important;
+  }
+
+  .project-hero h1{
+    font-size:clamp(3.7rem,18vw,5.5rem) !important;
+  }
+}

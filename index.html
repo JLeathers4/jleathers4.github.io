@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>James Leathers IV | Project Portfolio</title>
+  <meta name="description" content="Project portfolio for James Leathers IV — embedded systems, PCB design, RF, automation, and intelligent systems." />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="site-shell">
+    <header class="topbar">
+      <a class="brand" href="#top" aria-label="James Leathers IV home"><span class="brand-word">JAMES N LEATHERS IV</span></a>
+      <nav class="nav" aria-label="Primary navigation">
+        <a href="#profile">Profile</a>
+        <a href="#projects">Projects</a>
+        <a href="#tools">Tools</a>
+      </nav>
+      <a class="nav-icon" href="https://www.linkedin.com/in/james-n-leathers-iv/" target="_blank" rel="noreferrer" aria-label="LinkedIn profile">in</a>
+    </header>
+
+    <main id="top">
+      <section class="hero hero-with-background">
+        <div class="hero-background" role="img" aria-label="Boeing 747 over Washington D.C. with electronics overlay"></div>
+        <div class="hero-copy">
+          <p class="eyebrow">Project Portfolio</p>
+          <h1 class="hero-positioning"><span>From Hardware</span><strong>To Deployment</strong></h1>
+          <div class="rule"></div>
+          <div class="focus-grid" aria-label="Primary engineering focus areas">
+            <span><img class="focus-icon" src="assets/focus-embedded-systems.png" alt=""> Embedded Systems</span>
+            <span><img class="focus-icon" src="assets/focus-pcb-design.png" alt=""> PCB Design</span>
+            <span><img class="focus-icon" src="assets/focus-wireless-communication.png" alt=""> Wireless Communication</span>
+            <span><img class="focus-icon" src="assets/focus-software-deployment.png" alt=""> Software Deployment</span>
+          </div>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#projects"><span class="btn-arrow">›</span>View Projects</a>
+            <a class="btn btn-secondary btn-resume" href="resume.pdf" target="_blank" download="Leathers_James_Resume_2025.pdf">Resume <span class="download-icon">↓</span></a>
+          </div>
+        </div>
+      </section>
+
+      <section class="profile-title-wrap" aria-label="Profile section heading">
+        <div class="section-title"><span></span><h2>Profile</h2><span></span></div>
+      </section>
+
+      <section class="profile-snapshot integrated-profile" id="profile" aria-label="Profile and experience">
+        <div class="profile-main">
+          <h2>Avionics engineer with a systems-first approach.</h2>
+
+          <div class="workflow-block" aria-label="Systems-first workflow">
+            <div class="workflow-caption">Systems-first workflow</div>
+            <div class="method-line">
+              <span>Specification</span>
+              <i>→</i>
+              <span>Integration</span>
+              <i>→</i>
+              <span>Implementation</span>
+              <i>→</i>
+              <span>Verification</span>
+              <i>→</i>
+              <span>Documentation</span>
+            </div>
+          </div>
+
+          <p>
+            Purdue EET graduate focused on turning requirements into testable plans,<br>integrating working systems, and documenting technical decisions<br>so they hold up through reviews, handoffs, and verification.
+          </p>
+
+          <div class="profile-contact-row" aria-label="Contact information">
+            <a href="mailto:jleathers4@outlook.com"><span>✉</span>jleathers4@outlook.com</a>
+            <span><span>⌖</span>Everett, WA</span>
+          </div>
+        </div>
+
+        <div class="profile-photo-card">
+          <div class="profile-photo-placeholder">
+            <span>Professional<br>Headshot</span>
+          </div>
+        </div>
+
+        <div class="experience-timeline" aria-label="Education and experience timeline">
+          <article class="timeline-item current">
+            <img class="timeline-logo boeing-timeline-logo" src="assets/boeing-logo.webp" alt="Boeing logo">
+            <div>
+              <span class="timeline-year">Current</span>
+              <h3>Boeing</h3>
+              <p>Avionics Engineer</p>
+            </div>
+          </article>
+          <article class="timeline-item">
+            <img class="timeline-logo" src="assets/purdue-logo.png" alt="Purdue University logo">
+            <div>
+              <span class="timeline-year">May 2026</span>
+              <h3>Purdue University</h3>
+              <p>B.S. Electrical Engineering Technology</p>
+            </div>
+          </article>
+          <article class="timeline-item">
+            <img class="timeline-logo hughes-timeline-logo" src="assets/hughes-logo.svg" alt="Hughes Network Systems logo">
+            <div>
+              <span class="timeline-year">Summer 2025</span>
+              <h3>Hughes / EchoStar</h3>
+              <p>PCB Design Intern</p>
+            </div>
+          </article>
+          <article class="timeline-item">
+            <img class="timeline-logo" src="assets/soet-logo.png" alt="Purdue Engineering Technology logo">
+            <div>
+              <span class="timeline-year">2024–2026</span>
+              <h3>Purdue ECET TA</h3>
+              <p>Wireless Comm. + Embedded Systems</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="projects">
+        <div class="section-title"><span></span><h2>Featured Projects</h2><span></span></div>
+        <p class="section-subtitle">Selected systems combining hardware, software deployment, automation, and technical documentation.</p>
+        <div class="project-grid">
+          <a class="project-card project-link-card" href="ai-surveillance-server.html">
+            <div class="project-image img-server"></div>
+            <div class="project-body">
+              <span class="status-label">Live System</span>
+              <h3>AI Surveillance Server</h3>
+              <p class="project-summary">Two-layer self-hosted platform combining a dedicated OPNsense firewall, Docker-based application host, Frigate + Coral AI, and unified operations dashboards.</p>
+              <div class="tags"><span>Systems Architecture</span><span>Docker</span><span>Edge AI</span></div>
+              <span class="project-cta">View Breakdown →</span>
+            </div>
+          </a>
+
+          <a class="project-card project-link-card" href="smart-mirror.html">
+            <div class="project-image img-smart-mirror-photo"></div>
+            <div class="project-body">
+              <span class="status-label">Live System</span>
+              <h3>Smart Mirror</h3>
+              <p class="project-summary">Browser-based dashboard integrating weather, calendar-style data, air quality, and automation data flows.</p>
+              <div class="tags"><span>Node-RED</span><span>API Integration</span><span>Dashboard UI</span></div>
+              <span class="project-cta">View Breakdown →</span>
+            </div>
+          </a>
+
+          <a class="project-card project-link-card" href="https://www.linkedin.com/posts/activity-7455342329000775680-ZQ-w/" target="_blank" rel="noreferrer">
+            <div class="project-image img-cummins-photo"></div>
+            <div class="project-body">
+              <span class="status-label">Client / NDA</span>
+              <h3>Cummins Senior Capstone</h3>
+              <p class="project-summary">Industry-sponsored AI inspection project focused on system integration, deployment planning, and client delivery.</p>
+              <div class="tags"><span>Project Management</span><span>AI Inspection</span><span>Client Delivery</span></div>
+              <span class="project-cta">View Project Post →</span>
+            </div>
+          </a>
+
+          <a class="project-card project-link-card" href="portfolio-website.html">
+            <div class="project-image img-portfolio-website"></div>
+            <div class="project-body">
+              <span class="status-label">In Development</span>
+              <h3>Portfolio Website</h3>
+              <p class="project-summary">Custom dark-mode engineering portfolio built to present projects, systems thinking, and technical credibility.</p>
+              <div class="tags"><span>Frontend</span><span>AI-Assisted Design</span><span>GitHub</span></div>
+              <span class="project-cta">View Breakdown →</span>
+            </div>
+          </a>
+        </div>
+      </section>
+
+      <section class="tools" id="tools">
+        <div class="section-title compact"><span></span><h2>Platforms &amp; Tools</h2><span></span></div>
+        <div class="tool-grid logo-tool-grid">
+          <span><img src="assets/cadence-logo.png" alt="Cadence logo"><em>Cadence<br>Allegro</em></span>
+          <span><img src="assets/docker-logo.png" alt="Docker logo"><em>Docker</em></span>
+          <span><img src="assets/node-red-logo.png" alt="Node-RED logo"><em>Node-RED</em></span>
+          <span><img src="assets/matlab-logo.png" alt="MATLAB logo"><em>MATLAB</em></span>
+          <span><img src="assets/microchip-studio-logo.png" alt="Microchip Studio logo"><em>Microchip<br>Studio</em></span>
+          <span><img src="assets/ni-multisim-logo.webp" alt="NI Multisim logo"><em>NI Multisim</em></span>
+          <span><img src="assets/solidworks-logo.png" alt="SolidWorks logo"><em>SolidWorks</em></span>
+          <span class="stm32-tool"><img src="assets/stm32-cube-logo-transparent.png" alt="STM32 Cube logo"><em>STM32<br>Cube</em></span>
+        </div>
+      </section>
+    </main>
+      <footer class="footer"><span>James N Leathers IV · Project Portfolio</span></footer>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>

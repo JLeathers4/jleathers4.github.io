@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="1100" viewBox="0 0 900 1100">
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop stop-color="#0a1521"/>
+      <stop offset="1" stop-color="#03070c"/>
+    </linearGradient>
+    <radialGradient id="g" cx=".35" cy=".25" r=".8">
+      <stop stop-color="#2d8fd7" stop-opacity=".35"/>
+      <stop offset=".55" stop-color="#d8a94a" stop-opacity=".12"/>
+      <stop offset="1" stop-color="#000" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="900" height="1100" fill="url(#bg)"/>
+  <rect width="900" height="1100" fill="url(#g)"/>
+  <circle cx="450" cy="385" r="145" fill="#142235" stroke="#d8a94a" stroke-opacity=".55" stroke-width="4"/>
+  <path d="M215 900c34-170 153-270 235-270s201 100 235 270" fill="#142235" stroke="#d8a94a" stroke-opacity=".45" stroke-width="4"/>
+  <text x="450" y="1010" text-anchor="middle" fill="#d8a94a" font-family="Arial, sans-serif" font-size="42" letter-spacing="5">HEADSHOT</text>
+</svg>

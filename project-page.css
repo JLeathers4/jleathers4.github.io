@@ -1,0 +1,712 @@
+:root{--bg:#04080d;--panel:#07111b;--ink:#f4f4f0;--muted:#9aa8b7;--gold:#d8a94a;--gold-2:#f0c86a;--blue:#2d8fd7;--line:rgba(216,169,74,.34);--shadow:0 24px 80px rgba(0,0,0,.48)}
+
+.project-page{
+  background:
+    radial-gradient(circle at 78% 12%,rgba(45,143,215,.16),transparent 34rem),
+    radial-gradient(circle at 12% 28%,rgba(216,169,74,.07),transparent 30rem),
+    linear-gradient(180deg,#03070c,#06101a 48%,#03070c);
+}
+
+.project-hero{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) minmax(360px,.82fr);
+  gap:clamp(1.5rem,4vw,3.5rem);
+  align-items:center;
+  padding:clamp(2.2rem,5vw,4rem) clamp(1.25rem,4vw,3.2rem);
+  border-bottom:1px solid rgba(216,169,74,.18);
+}
+
+.back-link{
+  display:inline-flex;
+  color:var(--gold);
+  margin-bottom:1.15rem;
+  font-family:"Barlow Condensed",sans-serif;
+  text-transform:uppercase;
+  letter-spacing:.10em;
+  font-weight:700;
+}
+
+.project-hero h1{
+  margin:.55rem 0 .75rem;
+  font-size:clamp(4rem,8vw,7.6rem);
+  line-height:.86;
+}
+
+.project-hero p{
+  max-width:760px;
+  color:rgba(185,211,239,.88);
+  font-size:1.05rem;
+  line-height:1.55;
+}
+
+.project-hero-tags{
+  display:flex;
+  flex-wrap:wrap;
+  gap:.55rem;
+  margin-top:1.2rem;
+}
+
+.project-hero-tags span{
+  border:1px solid rgba(216,169,74,.34);
+  border-radius:999px;
+  padding:.38rem .68rem;
+  color:rgba(244,244,240,.92);
+  background:rgba(4,8,13,.34);
+  font-size:.9rem;
+}
+
+.project-hero-visual{
+  border:1px solid rgba(216,169,74,.28);
+  border-radius:16px;
+  overflow:hidden;
+  background:rgba(4,8,13,.56);
+  box-shadow:0 18px 55px rgba(0,0,0,.32);
+}
+
+.project-hero-visual img{
+  display:block;
+  width:100%;
+  height:auto;
+  object-fit:contain;
+  background:#02060b;
+}
+
+.project-tabs-section{
+  padding:2.3rem clamp(1.25rem,4vw,3.2rem) 3.4rem;
+}
+
+.project-tabs{
+  display:flex;
+  flex-wrap:wrap;
+  gap:.55rem;
+  margin-bottom:1.3rem;
+  border-bottom:1px solid rgba(216,169,74,.18);
+  padding-bottom:1rem;
+}
+
+.tab-button{
+  border:1px solid rgba(216,169,74,.26);
+  background:rgba(4,8,13,.42);
+  color:rgba(244,244,240,.82);
+  border-radius:999px;
+  padding:.48rem .78rem;
+  font-family:"Barlow Condensed",sans-serif;
+  text-transform:uppercase;
+  letter-spacing:.08em;
+  font-weight:700;
+  cursor:pointer;
+}
+
+.tab-button:hover,
+.tab-button.active{
+  color:#081019;
+  background:linear-gradient(135deg,var(--gold-2),var(--gold));
+  border-color:rgba(216,169,74,.65);
+}
+
+.tab-panel{
+  display:none;
+  min-height:360px;
+  padding:1.6rem;
+  border:1px solid rgba(216,169,74,.18);
+  border-radius:14px;
+  background:
+    radial-gradient(circle at 92% 8%,rgba(45,143,215,.10),transparent 22rem),
+    rgba(5,13,21,.78);
+  box-shadow:0 22px 65px rgba(0,0,0,.24);
+}
+
+.tab-panel.active{
+  display:block;
+}
+
+.tab-panel h2{
+  margin:0 0 .85rem;
+  color:var(--gold);
+  font-family:"Barlow Condensed",sans-serif;
+  text-transform:uppercase;
+  letter-spacing:.12em;
+  font-size:clamp(1.5rem,2.2vw,2rem);
+}
+
+.tab-panel p{
+  color:rgba(185,211,239,.88);
+  max-width:980px;
+}
+
+.tab-grid{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) minmax(260px,.38fr);
+  gap:2rem;
+}
+
+.project-facts{
+  border:1px solid rgba(216,169,74,.20);
+  border-radius:12px;
+  padding:1rem;
+  background:rgba(4,8,13,.36);
+}
+
+.project-facts h3,
+.problem-list h3,
+.stack-grid h3,
+.step-list h3,
+.verification-grid h3,
+.learned-callouts h3{
+  margin:.2rem 0 .35rem;
+  color:var(--ink);
+  font-family:"Barlow Condensed",sans-serif;
+  text-transform:uppercase;
+  letter-spacing:.06em;
+}
+
+.project-facts dl{
+  margin:0;
+}
+
+.project-facts div{
+  display:flex;
+  justify-content:space-between;
+  gap:1rem;
+  padding:.55rem 0;
+  border-bottom:1px solid rgba(216,169,74,.12);
+}
+
+.project-facts div:last-child{
+  border-bottom:0;
+}
+
+.project-facts dt{
+  color:var(--muted);
+}
+
+.project-facts dd{
+  margin:0;
+  color:var(--gold);
+  text-align:right;
+}
+
+.problem-list,
+.stack-grid,
+.step-list,
+.verification-grid,
+.learned-callouts{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:1rem;
+  margin-top:1.25rem;
+}
+
+.stack-grid,
+.verification-grid{
+  grid-template-columns:repeat(2,minmax(0,1fr));
+}
+
+.step-list{
+  grid-template-columns:repeat(4,minmax(0,1fr));
+}
+
+.problem-list article,
+.stack-grid article,
+.step-list article,
+.verification-grid article,
+.learned-callouts article{
+  border:1px solid rgba(216,169,74,.18);
+  border-radius:12px;
+  padding:1rem;
+  background:rgba(4,8,13,.36);
+}
+
+.problem-list span,
+.step-list span{
+  color:var(--gold);
+  font-family:"Barlow Condensed",sans-serif;
+  letter-spacing:.12em;
+  font-weight:700;
+}
+
+.architecture-flow{
+  display:flex;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:.7rem;
+  margin:1.3rem 0;
+}
+
+.architecture-flow div{
+  border:1px solid rgba(216,169,74,.32);
+  border-radius:10px;
+  padding:.75rem .9rem;
+  color:var(--ink);
+  background:rgba(4,8,13,.38);
+  font-weight:700;
+}
+
+.architecture-flow i{
+  color:var(--gold);
+  font-style:normal;
+}
+
+.architecture-notes{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:1rem;
+  margin-top:1rem;
+}
+
+.architecture-notes p{
+  margin:0;
+  padding:1rem;
+  border:1px solid rgba(216,169,74,.16);
+  border-radius:12px;
+  background:rgba(4,8,13,.30);
+}
+
+.role-list{
+  display:flex;
+  flex-wrap:wrap;
+  gap:.6rem;
+  margin-top:1.1rem;
+}
+
+.role-list span{
+  border:1px solid rgba(216,169,74,.34);
+  border-radius:999px;
+  padding:.42rem .72rem;
+  color:rgba(244,244,240,.92);
+  background:rgba(4,8,13,.34);
+}
+
+@media(max-width:980px){
+  .project-hero,
+  .tab-grid{
+    grid-template-columns:1fr;
+  }
+
+  .problem-list,
+  .stack-grid,
+  .step-list,
+  .verification-grid,
+  .learned-callouts,
+  .architecture-notes{
+    grid-template-columns:1fr;
+  }
+}
+
+@media(max-width:640px){
+  .project-tabs-section{
+    padding-inline:1rem;
+  }
+
+  .tab-panel{
+    padding:1.1rem;
+  }
+}
+
+
+/* AI Surveillance Server project page */
+.ai-server-hero .project-hero-visual img{
+  object-position:center;
+}
+
+.rack-flow div:nth-of-type(2),
+.rack-flow div:nth-of-type(4){
+  border-color:rgba(216,169,74,.52);
+  background:rgba(216,169,74,.075);
+}
+
+.service-map{
+  margin-top:1.4rem;
+  border:1px solid rgba(216,169,74,.18);
+  border-radius:12px;
+  padding:1rem;
+  background:rgba(4,8,13,.32);
+}
+
+.service-map h3{
+  margin:0 0 .75rem;
+  color:var(--gold);
+  font-family:"Barlow Condensed",sans-serif;
+  text-transform:uppercase;
+  letter-spacing:.12em;
+}
+
+.service-map-grid{
+  display:grid;
+  grid-template-columns:repeat(7,minmax(0,1fr));
+  gap:.55rem;
+}
+
+.service-map-grid span{
+  display:grid;
+  place-items:center;
+  min-height:44px;
+  padding:.5rem;
+  border:1px solid rgba(45,143,215,.28);
+  border-radius:8px;
+  color:rgba(244,244,240,.9);
+  background:rgba(45,143,215,.045);
+  text-align:center;
+  font-size:.85rem;
+  font-weight:600;
+}
+
+@media(max-width:1100px){
+  .service-map-grid{
+    grid-template-columns:repeat(3,minmax(0,1fr));
+  }
+}
+
+@media(max-width:640px){
+  .service-map-grid{
+    grid-template-columns:1fr;
+  }
+}
+
+
+/* Portfolio Website project page */
+.portfolio-site-hero .project-hero-visual img{
+  object-position:center top;
+}
+
+.portfolio-flow div:nth-of-type(1),
+.portfolio-flow div:nth-of-type(3){
+  border-color:rgba(216,169,74,.52);
+  background:rgba(216,169,74,.075);
+}
+
+.portfolio-map-grid span{
+  border-color:rgba(216,169,74,.24);
+  background:rgba(216,169,74,.045);
+}
+
+
+/* Expanded Smart Mirror breakdown */
+.visual-pair{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:1rem;
+  margin-top:1.5rem;
+}
+
+.visual-pair figure{
+  margin:0;
+  border:1px solid rgba(216,169,74,.20);
+  border-radius:14px;
+  overflow:hidden;
+  background:rgba(4,8,13,.42);
+}
+
+.visual-pair img{
+  width:100%;
+  height:auto;
+  display:block;
+  object-fit:contain;
+  background:#02060b;
+}
+
+.visual-pair figcaption{
+  padding:.85rem .95rem;
+  color:rgba(185,211,239,.82);
+  font-size:.86rem;
+  line-height:1.42;
+}
+
+.data-source-map,
+.implementation-callout,
+.decision-card{
+  margin-top:1.35rem;
+  border:1px solid rgba(216,169,74,.18);
+  border-radius:12px;
+  padding:1rem;
+  background:rgba(4,8,13,.34);
+}
+
+.data-source-map h3,
+.implementation-callout h3,
+.decision-card h3{
+  margin:0 0 .85rem;
+  color:var(--gold);
+  font-family:"Barlow Condensed",sans-serif;
+  text-transform:uppercase;
+  letter-spacing:.10em;
+}
+
+.data-source-map table{
+  width:100%;
+  border-collapse:collapse;
+  font-size:.88rem;
+}
+
+.data-source-map th,
+.data-source-map td{
+  border-bottom:1px solid rgba(216,169,74,.13);
+  padding:.72rem .65rem;
+  text-align:left;
+  vertical-align:top;
+}
+
+.data-source-map th{
+  color:var(--gold);
+  font-family:"Barlow Condensed",sans-serif;
+  text-transform:uppercase;
+  letter-spacing:.08em;
+  font-size:.9rem;
+}
+
+.data-source-map td{
+  color:rgba(185,211,239,.88);
+}
+
+.data-source-map tr:last-child td{
+  border-bottom:0;
+}
+
+.mirror-main-flow div,
+.payload-flow div{
+  min-height:48px;
+  display:grid;
+  place-items:center;
+  text-align:center;
+}
+
+.payload-flow{
+  align-items:stretch;
+}
+
+.payload-flow div{
+  min-width:110px;
+}
+
+.payload-flow div:nth-last-of-type(2),
+.payload-flow div:nth-last-of-type(1){
+  border-color:rgba(216,169,74,.52);
+  background:rgba(216,169,74,.075);
+}
+
+.implementation-callout p,
+.decision-card p{
+  margin:0;
+}
+
+@media(max-width:980px){
+  .visual-pair{
+    grid-template-columns:1fr;
+  }
+
+  .data-source-map{
+    overflow-x:auto;
+  }
+
+  .data-source-map table{
+    min-width:760px;
+  }
+}
+
+
+/* Revamped AI Surveillance Server page */
+.ai-server-hero .project-hero-visual img{
+  object-position:center 46%;
+}
+
+.portfolio-safe-note{
+  margin-top:1.35rem;
+  border:1px solid rgba(45,143,215,.24);
+  border-left:4px solid rgba(45,143,215,.72);
+  border-radius:12px;
+  padding:1rem 1rem 1rem 1.1rem;
+  background:rgba(45,143,215,.06);
+  color:rgba(214,232,247,.9);
+}
+
+.ai-problem-list,
+.ai-role-steps,
+.ai-implementation-steps,
+.ai-learned-grid{
+  grid-template-columns:repeat(2,minmax(0,1fr));
+}
+
+.ai-stack-grid{
+  grid-template-columns:repeat(2,minmax(0,1fr));
+}
+
+/* Clean, solid-line architecture flowchart */
+.topology-diagram{
+  position:relative;
+  max-width:1280px;
+  margin:1.6rem auto 1.5rem;
+  padding:0 0 .35rem;
+  --flow-line: rgba(216,169,74,.72);
+}
+
+.topology-core{
+  display:grid;
+  justify-items:center;
+  gap:.82rem;
+  margin:0 auto;
+}
+
+.topology-node{
+  width:min(100%,420px);
+  padding:.9rem 1.1rem;
+  border:1px solid rgba(216,169,74,.42);
+  border-radius:12px;
+  background:rgba(4,8,13,.56);
+  color:var(--ink);
+  text-align:center;
+  font-family:"Barlow Condensed",sans-serif;
+  letter-spacing:.075em;
+  text-transform:uppercase;
+  font-size:1.06rem;
+  box-shadow:0 12px 36px rgba(0,0,0,.22);
+}
+
+.topology-node.highlight{
+  border-color:rgba(216,169,74,.76);
+  background:rgba(216,169,74,.07);
+}
+
+.topology-arrow{
+  color:var(--gold);
+  font-family:"Barlow Condensed",sans-serif;
+  font-size:1.35rem;
+  line-height:1;
+}
+
+.topology-branches{
+  position:relative;
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:1rem;
+  margin:1.7rem 0 1.35rem;
+  padding-top:1.35rem;
+}
+
+/* Horizontal bus from the LAN switch to the four downstream branches. */
+.topology-branches::before{
+  content:"";
+  position:absolute;
+  top:0;
+  left:calc(12.5% - .5rem);
+  right:calc(12.5% - .5rem);
+  height:1px;
+  background:var(--flow-line);
+}
+
+/* Center drop from LAN switch into the branch bus. */
+.topology-branches::after{
+  content:"";
+  position:absolute;
+  top:-1.7rem;
+  left:50%;
+  width:1px;
+  height:1.7rem;
+  background:var(--flow-line);
+}
+
+.topology-branch{
+  position:relative;
+  border:1px solid rgba(216,169,74,.28);
+  border-radius:12px;
+  padding:1rem;
+  background:rgba(4,8,13,.52);
+  min-height:126px;
+}
+
+/* Individual branch drops from the bus to each card. */
+.topology-branch::before{
+  content:"";
+  position:absolute;
+  left:50%;
+  top:-1.35rem;
+  width:1px;
+  height:1.35rem;
+  background:var(--flow-line);
+}
+
+.topology-branch.primary{
+  border-color:rgba(216,169,74,.70);
+  background:rgba(216,169,74,.06);
+}
+
+.topology-branch h3,
+.public-safe-block-wrap h3{
+  margin:.1rem 0 .45rem;
+  color:var(--ink);
+  font-family:"Barlow Condensed",sans-serif;
+  text-transform:uppercase;
+  letter-spacing:.06em;
+}
+
+.topology-branch p{
+  margin:0 0 .65rem;
+  color:rgba(185,211,239,.86);
+  font-size:.92rem;
+}
+
+.topology-branch span{
+  display:inline-flex;
+  border:1px solid rgba(45,143,215,.24);
+  border-radius:999px;
+  padding:.28rem .6rem;
+  color:rgba(214,232,247,.9);
+  background:rgba(45,143,215,.07);
+  font-size:.82rem;
+}
+
+.public-safe-block-wrap{
+  margin-top:1.2rem;
+  border:1px solid rgba(216,169,74,.18);
+  border-radius:12px;
+  padding:1rem;
+  background:rgba(4,8,13,.34);
+}
+
+.public-safe-block{
+  margin:0;
+  padding:1rem;
+  overflow:auto;
+  border-radius:10px;
+  border:1px solid rgba(216,169,74,.12);
+  background:rgba(1,4,9,.78);
+  color:rgba(238,242,246,.92);
+  font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;
+  font-size:.88rem;
+  line-height:1.55;
+  white-space:pre;
+}
+
+.verification-table{
+  margin-top:1.3rem;
+}
+
+.closing-note{
+  margin-top:1.2rem;
+  color:rgba(214,232,247,.9);
+}
+
+@media(max-width:1100px){
+  .topology-branches{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+  }
+  .topology-branches::before,
+  .topology-branches::after,
+  .topology-branch::before{
+    display:none;
+  }
+}
+
+@media(max-width:980px){
+  .ai-problem-list,
+  .ai-role-steps,
+  .ai-implementation-steps,
+  .ai-stack-grid,
+  .ai-learned-grid,
+  .topology-branches{
+    grid-template-columns:1fr;
+  }
+}
+
+.ai-server-hero .project-hero-visual img{
+  max-height:520px;
+}

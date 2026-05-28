@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Smart Mirror | James N Leathers IV</title>
+  <meta name="description" content="Smart Mirror project breakdown by James N Leathers IV — Node-RED, FlowFuse Dashboard 2.0, API integration, data acquisition, and local dashboard deployment." />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="project-page.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="site-shell">
+    <header class="topbar">
+      <a class="brand" href="index.html#top" aria-label="James Leathers IV home"><span class="brand-word">JAMES N LEATHERS IV</span></a>
+      <nav class="nav project-nav" aria-label="Project navigation">
+        <a href="index.html#profile">Profile</a>
+        <a href="index.html#projects" class="active">Projects</a>
+        <a href="index.html#tools">Tools</a>
+      </nav>
+      <a class="nav-icon" href="https://www.linkedin.com/in/james-n-leathers-iv/" target="_blank" rel="noreferrer" aria-label="LinkedIn profile">in</a>
+    </header>
+
+    <main class="project-page">
+      <section class="project-hero smart-mirror-hero">
+        <div class="project-hero-copy">
+          <a class="back-link" href="index.html#projects">← Back to Projects</a>
+          <span class="status-label">Live System</span>
+          <h1>Smart Mirror</h1>
+          <p>
+            A locally deployed dashboard system that consolidates weather, forecast, sunrise/sunset, air quality, Outlook calendar, fuel pricing, and planned commute data into one glanceable interface.
+          </p>
+          <div class="project-hero-tags">
+            <span>Node-RED</span>
+            <span>FlowFuse Dashboard 2.0</span>
+            <span>API Integration</span>
+            <span>Data Acquisition</span>
+            <span>UI System Design</span>
+            <span>Local Deployment</span>
+          </div>
+        </div>
+        <div class="project-hero-visual">
+          <img src="assets/smart-mirror-dashboard.png" alt="Smart Mirror dashboard UI screenshot">
+        </div>
+      </section>
+
+      <section class="project-tabs-section" aria-label="Smart Mirror project breakdown">
+        <div class="project-tabs" role="tablist" aria-label="Project sections">
+          <button class="tab-button active" role="tab" aria-selected="true" data-tab="overview">Overview</button>
+          <button class="tab-button" role="tab" aria-selected="false" data-tab="problem">Problem</button>
+          <button class="tab-button" role="tab" aria-selected="false" data-tab="architecture">System Architecture</button>
+          <button class="tab-button" role="tab" aria-selected="false" data-tab="tools">Tools / Stack</button>
+          <button class="tab-button" role="tab" aria-selected="false" data-tab="role">My Role</button>
+          <button class="tab-button" role="tab" aria-selected="false" data-tab="implementation">Implementation</button>
+          <button class="tab-button" role="tab" aria-selected="false" data-tab="testing">Testing / Verification</button>
+          <button class="tab-button" role="tab" aria-selected="false" data-tab="learned">What I Learned</button>
+        </div>
+
+        <div class="tab-panel active" id="overview" role="tabpanel">
+          <div class="tab-grid">
+            <div>
+              <h2>Overview</h2>
+              <p>
+                The Smart Mirror is a local dashboard system designed to consolidate scattered daily information into a single, glanceable interface. Instead of checking several apps for weather, calendar events, air quality, commute readiness, sunrise and sunset times, and fuel prices, the mirror automatically collects those sources, normalizes the information, and displays it in a format that is useful at a distance.
+              </p>
+              <p>
+                The project is more than a visual dashboard. It is a small systems-integration project built around Node-RED and FlowFuse Dashboard 2.0. Node-RED handles automation, HTTP requests, parsing, storage, and payload assembly. FlowFuse Dashboard renders the final kiosk-style smart mirror interface.
+              </p>
+            </div>
+            <aside class="project-facts">
+              <h3>Project Facts</h3>
+              <dl>
+                <div><dt>Project Type</dt><dd>Local dashboard system</dd></div>
+                <div><dt>Status</dt><dd>Live system</dd></div>
+                <div><dt>Core Layer</dt><dd>Node-RED orchestration</dd></div>
+                <div><dt>Display Layer</dt><dd>FlowFuse Dashboard 2.0</dd></div>
+              </dl>
+            </aside>
+          </div>
+
+          <div class="visual-pair">
+            <figure>
+              <img src="assets/smart-mirror-nodered-flow.png" alt="Node-RED Smart Mirror orchestration flow">
+              <figcaption><strong>Figure 1.</strong> Node-RED orchestration flow. Each branch collects, parses, stores, and merges data into one final smart mirror payload.</figcaption>
+            </figure>
+            <figure>
+              <img src="assets/smart-mirror-dashboard.png" alt="Smart Mirror dashboard output">
+              <figcaption><strong>Figure 2.</strong> Smart Mirror dashboard UI. The screen prioritizes the information needed for fast daily decisions.</figcaption>
+            </figure>
+          </div>
+        </div>
+
+        <div class="tab-panel" id="problem" role="tabpanel">
+          <h2>Problem</h2>
+          <p>
+            The main problem this project solves is information fragmentation. Daily planning information is usually spread across weather apps, calendar apps, fuel-price websites, commute tools, and air-quality dashboards. That setup works, but it creates unnecessary friction before simple decisions such as what to wear, when to leave, or whether anything important is scheduled.
+          </p>
+          <p>
+            I approached the project from a systems-first perspective. The question was not simply, “Can I make a dashboard?” The better question was, “Can I build a reliable information pipeline that collects multiple external data sources, handles missing data, and presents the final result in a useful way?”
+          </p>
+          <div class="problem-list">
+            <article><span>01</span><h3>Fragmented inputs</h3><p>Weather, calendar, AQI, fuel, and commute information all live in separate systems.</p></article>
+            <article><span>02</span><h3>Different source behavior</h3><p>JSON APIs, HTML scraping, token-based calendar access, and local-time formats all require different handling.</p></article>
+            <article><span>03</span><h3>Graceful failure</h3><p>The mirror should keep running when one service is unavailable, expired, or still being configured.</p></article>
+          </div>
+        </div>
+
+        <div class="tab-panel" id="architecture" role="tabpanel">
+          <h2>System Architecture</h2>
+          <p>
+            The architecture is built around a simple pipeline: acquire the data, normalize it, store subsystem state, build a unified payload, and render the UI. Each subsystem is separated into its own branch so one failing data source does not automatically break the full mirror.
+          </p>
+
+          <div class="architecture-flow mirror-main-flow">
+            <div>External Data Sources</div><i>→</i><div>Node-RED HTTP Requests</div><i>→</i><div>Parse + Normalize</div><i>→</i><div>Flow Context</div><i>→</i><div>Payload Builder</div><i>→</i><div>FlowFuse UI</div>
+          </div>
+
+          <div class="architecture-notes">
+            <p><strong>Independent branches:</strong> weather, forecast, sun, AQI, Outlook calendar, fuel pricing, and planned commute logic are handled separately.</p>
+            <p><strong>Payload boundary:</strong> the dashboard receives one unified object instead of independently calling every external source.</p>
+            <p><strong>Fallback behavior:</strong> missing or pending subsystems show setup or updating states instead of silently failing.</p>
+          </div>
+
+          <div class="data-source-map">
+            <h3>System Inputs and Outputs</h3>
+            <table>
+              <thead>
+                <tr><th>Subsystem</th><th>Source</th><th>What is extracted</th><th>How it is used</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>Current weather</td><td>KPAE METAR</td><td>Temperature, humidity, wind, visibility, flight category, raw observation</td><td>Hero weather and daily prep context</td></tr>
+                <tr><td>Forecast</td><td>National Weather Service hourly forecast</td><td>Next 16 active or upcoming forecast periods</td><td>Forecast strip and outfit recommendation logic</td></tr>
+                <tr><td>Sunrise / sunset</td><td>Open-Meteo Forecast API</td><td>Local sunrise and sunset times</td><td>Hero environment section</td></tr>
+                <tr><td>Air quality</td><td>Open-Meteo Air Quality API</td><td>US AQI, PM2.5, PM10, ozone, NO₂</td><td>Air quality badge and pollutant details</td></tr>
+                <tr><td>Calendar</td><td>Microsoft Graph Outlook calendarView</td><td>Today’s calendar events</td><td>Today panel</td></tr>
+                <tr><td>Fuel prices</td><td>AAA Washington fuel page</td><td>Seattle-Bellevue-Everett premium average and daily change</td><td>Reminders panel</td></tr>
+                <tr><td>Commute</td><td>Home Assistant / Waze sensor</td><td>Planned travel time from apartment to Boeing Everett</td><td>Daily prep and leave-by calculation</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="tab-panel" id="tools" role="tabpanel">
+          <h2>Tools / Stack</h2>
+          <p>
+            Node-RED is the main integration layer because the project relies on multiple event-driven data flows rather than a single linear script. FlowFuse Dashboard 2.0 renders the final interface, while JavaScript function nodes handle parsing, formatting, decision logic, and payload assembly.
+          </p>
+          <div class="stack-grid">
+            <article><h3>Node-RED</h3><p>Main automation and orchestration layer for scheduled refreshes, branches, requests, parsing, and payload assembly.</p></article>
+            <article><h3>FlowFuse Dashboard 2.0</h3><p>Local smart mirror UI with custom full-screen dashboard layout.</p></article>
+            <article><h3>JavaScript Function Nodes</h3><p>Request construction, API parsing, state conversion, recommendations, and display logic.</p></article>
+            <article><h3>AviationWeather.gov METAR</h3><p>Current observed weather at KPAE / Paine Field.</p></article>
+            <article><h3>National Weather Service API</h3><p>Hourly weather forecast for the Everett area.</p></article>
+            <article><h3>Open-Meteo APIs</h3><p>Sunrise, sunset, AQI, and pollutant values.</p></article>
+            <article><h3>Microsoft Graph</h3><p>Outlook calendar integration for Today panel events.</p></article>
+            <article><h3>AAA Fuel Prices</h3><p>Premium gas price tracking for the Seattle-Bellevue-Everett area.</p></article>
+            <article><h3>Home Assistant / Waze</h3><p>Planned commute travel-time input for Daily Prep.</p></article>
+          </div>
+        </div>
+
+        <div class="tab-panel" id="role" role="tabpanel">
+          <h2>My Role</h2>
+          <p>
+            My role covered the full system lifecycle: specification, integration, implementation, verification, and documentation. I defined what the mirror needed to do, integrated multiple external services, wrote the parsing logic, assembled the final payload, designed the dashboard layout, and verified subsystem behavior before relying on the full display.
+          </p>
+          <div class="role-list">
+            <span>Requirements definition</span><span>Node-RED flow design</span><span>API integration</span><span>HTML scraping</span><span>JavaScript parsing</span><span>Payload architecture</span><span>FlowFuse UI design</span><span>Verification and documentation</span>
+          </div>
+        </div>
+
+        <div class="tab-panel" id="implementation" role="tabpanel">
+          <h2>Implementation</h2>
+          <p>
+            The implementation started with the data refresh structure. Weather and calendar data refresh every 15 minutes, while AAA premium gas pricing is handled as a daily refresh branch. Each scheduled inject node starts a branch of the system.
+          </p>
+
+          <div class="step-list">
+            <article><span>01</span><h3>Weather branch</h3><p>Builds METAR, NWS forecast, sunrise/sunset, and AQI requests, then parses results into display-ready objects.</p></article>
+            <article><span>02</span><h3>Forecast filtering</h3><p>Filters expired periods so the dashboard shows the next 16 active or upcoming hours instead of stale data.</p></article>
+            <article><span>03</span><h3>Calendar branch</h3><p>Builds Microsoft Graph calendarView requests and shows a setup/authentication state when the token is missing or expired.</p></article>
+            <article><span>04</span><h3>Fuel branch</h3><p>Scrapes AAA Washington fuel pricing, extracts Seattle-Bellevue-Everett premium fuel average, and formats the daily delta.</p></article>
+          </div>
+
+          <div class="implementation-callout">
+            <h3>Payload Builder</h3>
+            <p>
+              The payload builder is the system integration point. It reads stored weather, forecast, sun, AQI, calendar, fuel, and planned commute values from Node-RED flow context, then sends one complete object into the FlowFuse Dashboard UI.
+            </p>
+          </div>
+
+          <div class="architecture-flow payload-flow">
+            <div>sm_metar</div><div>sm_hourly</div><div>sm_sun</div><div>sm_aqi</div><div>sm_today</div><div>sm_fuel</div><i>→</i><div>Unified Payload</div><i>→</i><div>Smart Mirror UI</div>
+          </div>
+
+          <div class="decision-card">
+            <h3>Outfit Recommendation Logic</h3>
+            <p>
+              The outfit recommendation system checks the 16-hour forecast, current weather, rain probability, wind speed, temperature range, and condition text. The logic is intentionally deterministic so recommendations such as winter gear, rain jacket, windbreaker, light jacket, or comfortable layers can be tested, adjusted, and explained.
+            </p>
+          </div>
+        </div>
+
+        <div class="tab-panel" id="testing" role="tabpanel">
+          <h2>Testing / Verification</h2>
+          <p>
+            The project was verified branch-by-branch before trusting the complete dashboard payload. Testing focused on parser accuracy, refresh behavior, failure states, and whether the UI stayed readable instead of simply displaying every possible data point.
+          </p>
+
+          <div class="data-source-map verification-table">
+            <h3>Verification Matrix</h3>
+            <table>
+              <thead>
+                <tr><th>Test area</th><th>What was checked</th><th>Purpose</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>Weather refresh</td><td>METAR, NWS, sunrise/sunset, and AQI requests</td><td>Confirmed each weather branch could be requested and parsed independently.</td></tr>
+                <tr><td>Forecast filtering</td><td>Expired hourly periods</td><td>Prevented stale forecast cards from appearing in the 16-hour strip.</td></tr>
+                <tr><td>METAR parsing</td><td>Temperature, dew point, humidity, wind, visibility, and altimeter fields</td><td>Converted aviation weather data into dashboard-friendly values.</td></tr>
+                <tr><td>Sunrise / sunset formatting</td><td>Open-Meteo local wall-clock strings</td><td>Prevented timezone-shifted sunrise and sunset values.</td></tr>
+                <tr><td>AQI categorization</td><td>US AQI and pollutant values</td><td>Confirmed the UI could show raw pollutant detail and a simple air quality status.</td></tr>
+                <tr><td>Outlook setup</td><td>Missing, temporary, and expired Microsoft Graph token states</td><td>Showed setup/authentication messages instead of breaking the dashboard.</td></tr>
+                <tr><td>AAA fuel scrape</td><td>Seattle-Bellevue-Everett premium fuel average and daily delta</td><td>Confirmed the fuel reminder uses the correct metro area and fuel type.</td></tr>
+                <tr><td>UI readability</td><td>Hero section, forecast strip, and lower panels</td><td>Confirmed the dashboard is readable at a glance and avoids unnecessary repetition.</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="verification-grid">
+            <article><h3>Weather summary</h3><p>The UI originally repeated temperature information in multiple places. The layout was adjusted so the outfit summary stayed short while detailed metrics remained in a dedicated weather line.</p></article>
+            <article><h3>Fuel refresh</h3><p>The AAA fuel branch was adjusted so fuel pricing could update automatically instead of relying on manual triggering.</p></article>
+            <article><h3>Graph token</h3><p>When the calendar token is missing or expired, the Today panel shows a setup state rather than incorrectly implying that the calendar is empty.</p></article>
+          </div>
+        </div>
+
+        <div class="tab-panel" id="learned" role="tabpanel">
+          <h2>What I Learned</h2>
+          <p>
+            This project reinforced that a useful deployed system is not just the final screen. The dashboard matters, but the more important engineering work is behind it: data acquisition, parsing, failure handling, state management, integration boundaries, and verification.
+          </p>
+          <div class="learned-callouts">
+            <article><h3>Not all inputs deserve equal trust</h3><p>A structured weather API behaves differently from an HTML scrape. A missing token is not the same as an empty calendar. A forecast feed can contain valid but stale periods.</p></article>
+            <article><h3>Architecture makes debugging possible</h3><p>By separating each subsystem into its own branch, AQI, calendar, fuel, weather, and commute logic can be tested and expanded independently.</p></article>
+            <article><h3>The user decision matters most</h3><p>The goal was not to display every data point. The goal was to convert raw signals into decisions: what to wear, what is scheduled, when to leave, and what to know before walking out the door.</p></article>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer"><span>James N Leathers IV · Project Portfolio</span></footer>
+  </div>
+
+  <script src="project-page.js"></script>
+</body>
+</html>

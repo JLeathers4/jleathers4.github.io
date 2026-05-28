@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Surveillance Server | James N Leathers IV</title>
+  <meta name="description" content="AI Surveillance Server project breakdown by James N Leathers IV — a two-layer self-hosted platform built around a dedicated OPNsense firewall, Debian Docker host, Frigate NVR, Coral AI, Home Assistant, and Node-RED-powered interfaces." />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="project-page.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="site-shell">
+    <header class="topbar">
+      <a class="brand" href="index.html#top" aria-label="James Leathers IV home"><span class="brand-word">JAMES N LEATHERS IV</span></a>
+      <nav class="nav project-nav" aria-label="Project navigation">
+        <a href="index.html#profile">Profile</a>
+        <a href="index.html#projects" class="active">Projects</a>
+        <a href="index.html#tools">Tools</a>
+      </nav>
+      <a class="nav-icon" href="https://www.linkedin.com/in/james-n-leathers-iv/" target="_blank" rel="noreferrer" aria-label="LinkedIn profile">in</a>
+    </header>
+
+    <main class="project-page">
+      <section class="project-hero ai-server-hero">
+        <div class="project-hero-copy">
+          <a class="back-link" href="index.html#projects">← Back to Projects</a>
+          <span class="status-label">Live System</span>
+          <h1>AI Surveillance Server</h1>
+          <p>
+            A two-layer self-hosted platform that separates the network edge from the application plane: a dedicated OPNsense firewall appliance handles routing and policy enforcement, while a separate Debian Docker host runs surveillance, automation, messaging, and dashboard services.
+          </p>
+          <div class="project-hero-tags">
+            <span>Systems Architecture</span>
+            <span>OPNsense</span>
+            <span>Docker</span>
+            <span>Frigate + Coral AI</span>
+            <span>Home Assistant</span>
+            <span>Node-RED</span>
+            <span>Observability</span>
+          </div>
+        </div>
+        <div class="project-hero-visual">
+          <img src="assets/ai-surveillance-server-cover.png" alt="Physical AI surveillance server rack with dedicated firewall and separate application host">
+        </div>
+      </section>
+
+      <section class="project-tabs-section" aria-label="AI Surveillance Server project breakdown">
+        <div class="project-tabs" role="tablist" aria-label="Project sections">
+          <button class="tab-button active" role="tab" aria-selected="true" data-tab="overview">Overview</button>
+          <button class="tab-button" role="tab" aria-selected="false" data-tab="problem">Problem</button>
+          <button class="tab-button" role="tab" aria-selected="false" data-tab="architecture">System Architecture</button>
+          <button class="tab-button" role="tab" aria-selected="false" data-tab="tools">Tools / Stack</button>
+          <button class="tab-button" role="tab" aria-selected="false" data-tab="role">My Role</button>
+          <button class="tab-button" role="tab" aria-selected="false" data-tab="implementation">Implementation</button>
+          <button class="tab-button" role="tab" aria-selected="false" data-tab="testing">Testing / Verification</button>
+          <button class="tab-button" role="tab" aria-selected="false" data-tab="learned">What I Learned</button>
+        </div>
+
+        <div class="tab-panel active" id="overview" role="tabpanel">
+          <div class="tab-grid">
+            <div>
+              <h2>Overview</h2>
+              <p>
+                This project is best understood as a small self-hosted distributed system rather than just a home lab or a camera server. I split the platform into two responsibilities: a dedicated firewall appliance for the WAN edge and security boundary, and a separate Beelink Debian host for the application layer. That decision made the system easier to reason about, easier to maintain, and far easier to explain.
+              </p>
+              <p>
+                On top of that platform, I deployed a containerized stack that combines Frigate NVR, Home Assistant, Node-RED, Smart Mirror services, an MQTT message bus, Zigbee2MQTT, ESPHome, and a restricted admin overlay. Coral AI offloads object detection for the surveillance pipeline so the general-purpose host CPU can remain focused on the broader application workload.
+              </p>
+              <p>
+                The result is a local-first system that brings together surveillance, automation, monitoring, and user-facing dashboards in one coherent architecture rather than a loose collection of apps.
+              </p>
+            </div>
+            <aside class="project-facts">
+              <h3>Project Facts</h3>
+              <dl>
+                <div><dt>Project Type</dt><dd>Self-hosted systems platform</dd></div>
+                <div><dt>Architecture</dt><dd>Two-box split</dd></div>
+                <div><dt>Network Edge</dt><dd>Dedicated OPNsense firewall</dd></div>
+                <div><dt>Application Plane</dt><dd>Debian + Docker + Portainer</dd></div>
+              </dl>
+            </aside>
+          </div>
+
+          <div class="portfolio-safe-note">
+            <strong>Portfolio-safe note:</strong> infrastructure visuals are intentionally sanitized. IP addresses, private hostnames, credentials, exact ingress paths, and camera endpoints are omitted from the project page.
+          </div>
+
+          <div class="visual-pair">
+            <figure>
+              <img src="assets/ai-server-rack-floor.jpg" alt="Physical server rack showing a dedicated firewall appliance and separate application host">
+              <figcaption><strong>Figure 1.</strong> Physical two-box layout. The firewall appliance and the Docker host are intentionally kept separate so the network edge does not share a failure domain with the application stack.</figcaption>
+            </figure>
+            <figure>
+              <img src="assets/ai-server-ops-mobile.png" alt="Mobile-safe Home Assistant operations dashboard showing CPU, temperature, RAM, disk usage, and history charts">
+              <figcaption><strong>Figure 2.</strong> Operations dashboard. This view shows the system is not just deployed, but also observable and maintainable during runtime.</figcaption>
+            </figure>
+          </div>
+        </div>
+
+        <div class="tab-panel" id="problem" role="tabpanel">
+          <h2>Problem</h2>
+          <p>
+            I originally built this server because I did not want my automation, surveillance, and device-control workflow split across a stack of disconnected apps. Many “plug and play” systems look simple at first, but the useful features often sit behind subscriptions, the integrations can be unreliable, and the user still has to learn several separate interfaces that do not behave like one system.
+          </p>
+          <p>
+            The better solution was to build my own controlled platform: one network boundary, one application host, one containerized service layer, and a set of dashboards that expose the system in a way that is actually useful. That gave me a more advanced and reliable setup while also forcing me to learn how the firewall, Docker host, camera pipeline, message bus, device bridges, and dashboards work together.
+          </p>
+          <p>
+            The real engineering problem was not simply “How do I run a few services?” It was “How do I design a local system that avoids vendor lock-in, keeps responsibilities separated, stays observable, and can be maintained without depending on a confusing collection of third-party apps?”
+          </p>
+          <div class="problem-list ai-problem-list">
+            <article><span>01</span><h3>Fragmented tools</h3><p>Separate camera, automation, remote-access, and dashboard apps create duplicated setup work and inconsistent user experiences.</p></article>
+            <article><span>02</span><h3>Paid or limited features</h3><p>Commercial “easy” systems often hide advanced controls, automation logic, or remote access behind subscriptions or locked ecosystems.</p></article>
+            <article><span>03</span><h3>Reliability gaps</h3><p>Cloud-dependent or loosely connected systems can fail in ways that are hard to diagnose because the user cannot see the full pipeline.</p></article>
+            <article><span>04</span><h3>Systems understanding</h3><p>Building the platform myself made the architecture more transparent: firewall boundary, Docker services, events, devices, cameras, and dashboards.</p></article>
+          </div>
+        </div>
+
+        <div class="tab-panel" id="architecture" role="tabpanel">
+          <h2>System Architecture</h2>
+          <p>
+            The architecture centers on one deliberate choice: keep the network boundary separate from the application plane. OPNsense owns routing, NAT, and policy enforcement. The Beelink Debian host owns the containerized services. Cameras, clients, dashboards, and the wireless access point sit behind that controlled boundary.
+          </p>
+
+          <div class="topology-diagram" aria-label="Sanitized network and application flowchart">
+            <div class="topology-core">
+              <div class="topology-node">ISP Handoff</div>
+              <div class="topology-arrow">↓</div>
+              <div class="topology-node highlight">OPNsense Firewall Appliance</div>
+              <div class="topology-arrow">↓</div>
+              <div class="topology-node">LAN Switch</div>
+            </div>
+
+            <div class="topology-branches">
+              <article class="topology-branch primary">
+                <h3>Beelink Docker Host</h3>
+                <p>Debian · Docker Engine · Portainer · IoT stack</p>
+                <span>Coral AI attached to host</span>
+              </article>
+              <article class="topology-branch">
+                <h3>Wireless Access Point</h3>
+                <p>Local Wi‑Fi distribution for clients and mobile access</p>
+              </article>
+              <article class="topology-branch">
+                <h3>Cameras</h3>
+                <p>IP camera ingest into the Frigate surveillance pipeline</p>
+              </article>
+              <article class="topology-branch">
+                <h3>Clients & Dashboards</h3>
+                <p>Home Assistant, Frigate views, and specialized UI surfaces</p>
+              </article>
+            </div>
+          </div>
+
+          <div class="public-safe-block-wrap">
+            <h3>Public-Safe Block Diagram</h3>
+            <pre class="public-safe-block">[ OPNsense Firewall Appliance ]
+  - WAN edge
+  - Routing / NAT / policy
+  - Network boundary for the lab
+              |
+              v
+[ Beelink Docker Host on Debian ]
+  - Docker Engine
+  - Portainer
+  - IoT_Stack
+      |
+      +--> Home Assistant ........ primary operations UI
+      +--> Node-RED .............. orchestration / automation glue
+      +--> Smart Mirror UI ....... focused daily-planning interface
+      +--> MQTT broker ........... message bus
+      +--> Zigbee bridge ......... Zigbee device adapter layer
+      +--> ESPHome service ....... embedded device config / updates
+      +--> Frigate NVR ........... camera ingest / recording / events
+      |       |
+      |       +--> Coral AI ...... hardware object-detection offload
+      |
+      +--> Private admin overlay . restricted remote administration
+
+[ Cameras ] ------> Frigate
+[ Sensors ] ------> MQTT / Home Assistant / Node-RED
+[ Mobile / wall / desktop UIs ] --> Home Assistant / Frigate / Mirror</pre>
+          </div>
+
+          <div class="data-source-map">
+            <h3>System Layers</h3>
+            <table>
+              <thead>
+                <tr><th>Layer</th><th>Primary components</th><th>Responsibility</th><th>Why it mattered</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>Network boundary</td><td>OPNsense firewall appliance</td><td>WAN edge, routing, NAT, policy enforcement</td><td>Prevents application workloads from sharing the same trust boundary as the internet edge.</td></tr>
+                <tr><td>Application host</td><td>Beelink Debian host, Docker Engine, Portainer</td><td>Stable runtime for containerized services</td><td>Makes the platform reproducible, modular, and easier to maintain.</td></tr>
+                <tr><td>Surveillance pipeline</td><td>Frigate NVR, Coral AI, cameras</td><td>Camera ingest, recording, events, and object detection</td><td>Pushes inference work to dedicated hardware instead of overloading the host CPU.</td></tr>
+                <tr><td>Automation + integration</td><td>Home Assistant, Node-RED, MQTT, Zigbee2MQTT, ESPHome</td><td>Device state, automations, orchestration, and interface logic</td><td>Turns separate devices and services into one coherent operating environment.</td></tr>
+                <tr><td>User interfaces</td><td>Home Assistant dashboards, Frigate views, Smart Mirror UI</td><td>Operations visibility and daily-use access</td><td>Shows the system was designed for operators, not just for back-end bring-up.</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+        </div>
+
+        <div class="tab-panel" id="tools" role="tabpanel">
+          <h2>Tools / Stack</h2>
+          <p>
+            The tool choices work because each one owns a distinct layer instead of competing for the same role. The firewall protects the boundary, the Debian host runs the services, the message bus decouples producers from consumers, Frigate handles the surveillance workload, and the dashboards make the system usable.
+          </p>
+          <div class="stack-grid ai-stack-grid">
+            <article><h3>OPNsense</h3><p>Dedicated firewall, routing, and policy boundary for the lab.</p></article>
+            <article><h3>Debian + Docker</h3><p>Stable host OS and container runtime for reproducible service deployment.</p></article>
+            <article><h3>Portainer</h3><p>Operational management layer for grouped Docker services and stack updates.</p></article>
+            <article><h3>Frigate NVR</h3><p>Local-first surveillance pipeline for camera ingest, recordings, and event handling.</p></article>
+            <article><h3>Coral AI</h3><p>Hardware object-detection offload for the Frigate detection workload.</p></article>
+            <article><h3>Home Assistant</h3><p>Main operations dashboard and automation platform for the environment.</p></article>
+            <article><h3>Node-RED + Smart Mirror</h3><p>Flow-based integration layer and focused UI for daily planning information.</p></article>
+            <article><h3>MQTT + Zigbee2MQTT + ESPHome</h3><p>Messaging and device-adapter layer connecting sensors, Zigbee devices, and embedded nodes.</p></article>
+          </div>
+        </div>
+
+        <div class="tab-panel" id="role" role="tabpanel">
+          <h2>My Role</h2>
+          <p>
+            I owned the project end to end: boundary definition, platform selection, service deployment, integration, troubleshooting, verification, and recruiter-safe documentation. The strongest part of the work was not just getting services to run. It was deciding what each part of the system should be responsible for and then building interfaces that made the whole platform understandable.
+          </p>
+          <div class="step-list ai-role-steps">
+            <article><span>01</span><h3>Specification</h3><p>Defined the two-box split, the major service responsibilities, and what the user-facing dashboards needed to communicate.</p></article>
+            <article><span>02</span><h3>Integration</h3><p>Connected surveillance, automation, messaging, Zigbee, and dashboard layers so they behaved like one platform.</p></article>
+            <article><span>03</span><h3>Implementation</h3><p>Stood up the hosts, deployed the Docker stack, added Coral acceleration, and organized the service interactions.</p></article>
+            <article><span>04</span><h3>Verification</h3><p>Validated routing, container health, camera paths, UI visibility, and restart behavior instead of trusting the stack blindly.</p></article>
+          </div>
+          <div class="role-list">
+            <span>Systems architecture</span>
+            <span>Firewall planning</span>
+            <span>Container deployment</span>
+            <span>Frigate + Coral integration</span>
+            <span>MQTT and device integration</span>
+            <span>UI and dashboard design</span>
+            <span>Runtime troubleshooting</span>
+            <span>Sanitized technical documentation</span>
+          </div>
+        </div>
+
+        <div class="tab-panel" id="implementation" role="tabpanel">
+          <h2>Implementation</h2>
+          <p>
+            The implementation followed an ordered bring-up sequence rather than an ad hoc install process. First, I established the network boundary. Then I stood up the Debian host. After that, I deployed the shared service layer, connected the surveillance stack, and finally built the user-facing operational views on top of the working back end.
+          </p>
+          <div class="step-list ai-implementation-steps">
+            <article><span>01</span><h3>Define the boundary</h3><p>Placed WAN-facing security and routing duties on a dedicated OPNsense firewall appliance.</p></article>
+            <article><span>02</span><h3>Stand up the host</h3><p>Used a Beelink Debian system as the stable application host for containerized services.</p></article>
+            <article><span>03</span><h3>Containerize the stack</h3><p>Grouped services under a Docker-based deployment model for cleaner updates, restarts, and maintenance.</p></article>
+            <article><span>04</span><h3>Connect the data backbone</h3><p>Brought up Home Assistant, MQTT, Zigbee2MQTT, ESPHome, and Node-RED as the integration layer.</p></article>
+            <article><span>05</span><h3>Add the surveillance path</h3><p>Connected cameras into Frigate and attached Coral AI for hardware-accelerated object detection.</p></article>
+            <article><span>06</span><h3>Build usable interfaces</h3><p>Exposed the system through operations dashboards, Frigate views, and the Smart Mirror’s specialized UI.</p></article>
+          </div>
+
+          <div class="implementation-callout">
+            <h3>Why the Two-Box Split Mattered</h3>
+            <p>
+              The most important architectural choice in this project was not a single service or dashboard. It was separating the network edge from the application layer. That reduced the size of each failure domain and made upgrades, troubleshooting, and explanations much cleaner.
+            </p>
+          </div>
+
+          <div class="visual-pair">
+            <figure>
+              <img src="assets/ai-server-rack-side.jpg" alt="Close-up photo of the rack-mounted application host and supporting hardware">
+              <figcaption><strong>Figure 5.</strong> Hardware setup detail. This view supports the architecture story by showing that the project was built as a real physical system, not just a diagram.</figcaption>
+            </figure>
+            <figure>
+              <img src="assets/ai-server-ops-mobile.png" alt="Operations dashboard with CPU, RAM, disk, and trend history widgets">
+              <figcaption><strong>Figure 6.</strong> Runtime observability view. Resource and history cards make the system easier to operate and debug after deployment.</figcaption>
+            </figure>
+          </div>
+        </div>
+
+        <div class="tab-panel" id="testing" role="tabpanel">
+          <h2>Testing / Verification</h2>
+          <p>
+            Verification was approached as layered confidence building. First, individual pieces had to work on their own. Then the integrations had to work. Then the system had to recover cleanly from restarts and routine changes. Just as important, the public portfolio version had to stay sanitized.
+          </p>
+
+          <div class="data-source-map verification-table">
+            <h3>Verification Matrix</h3>
+            <table>
+              <thead>
+                <tr><th>Test layer</th><th>What was validated</th><th>What success looked like</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>Network boundary</td><td>Firewall routing, LAN reachability, and allowed service paths</td><td>The network edge remained independent while required internal traffic still worked.</td></tr>
+                <tr><td>Container health</td><td>Docker service startup, logs, restart behavior, and dependency readiness</td><td>Core services returned predictably without manual reconfiguration.</td></tr>
+                <tr><td>Surveillance path</td><td>Camera ingest, Frigate events, and Coral-assisted detection flow</td><td>Camera streams and detections remained stable during routine use.</td></tr>
+                <tr><td>Integration layer</td><td>Home Assistant entities, MQTT messaging, Node-RED data flow, and UI population</td><td>End-to-end data paths worked without relying on manual intervention.</td></tr>
+                <tr><td>Observability</td><td>Dashboard metrics, resource history, and system status views</td><td>The running system could be judged and debugged from its own interface layer.</td></tr>
+                <tr><td>Recovery</td><td>Restart and redeploy behavior</td><td>Critical services came back in a predictable order after normal recovery events.</td></tr>
+                <tr><td>Portfolio sanitization</td><td>Screenshots, diagrams, and documentation contents</td><td>No secrets, exact ingress details, or sensitive addressing were published.</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="verification-grid ai-verification-grid">
+            <article><h3>Operational visibility</h3><p>I treated dashboards and health views as part of the engineering work, not as an afterthought. If the system cannot be observed, it cannot be maintained responsibly.</p></article>
+            <article><h3>Failure-domain awareness</h3><p>The design goal was to keep UI failures, automation issues, and surveillance workload spikes from becoming the same problem as WAN-edge routing.</p></article>
+            <article><h3>Documentation discipline</h3><p>The public version explains the architecture and verification approach while intentionally withholding information that would make the lab easier to fingerprint.</p></article>
+          </div>
+        </div>
+
+        <div class="tab-panel" id="learned" role="tabpanel">
+          <h2>What I Learned</h2>
+          <p>
+            The biggest takeaway from this project is that the strongest systems work usually happens before the final UI. Clear boundaries, service ownership, hardware/software tradeoffs, and verification discipline mattered more than any single dashboard screen.
+          </p>
+          <div class="learned-callouts ai-learned-grid">
+            <article><h3>Separation of concerns scales</h3><p>Once the WAN edge and the application plane were split, the rest of the system became easier to explain, troubleshoot, and grow.</p></article>
+            <article><h3>Observability is part of the build</h3><p>Status views, resource history, and service-level visibility are not cosmetic features. They are part of how a real deployed system stays maintainable.</p></article>
+            <article><h3>Hardware choices change the architecture</h3><p>Adding Coral AI was not a vanity upgrade. It changed how the surveillance workload was distributed and improved the overall platform design.</p></article>
+            <article><h3>Documentation signals engineering judgment</h3><p>A strong project write-up does not just show what was built. It shows what was intentionally omitted, why those boundaries matter, and how the system was verified.</p></article>
+          </div>
+          <p class="closing-note">
+            This project ultimately shows my systems-first approach: define the boundary, assign responsibilities, integrate the layers, verify the behavior, and document the result in a way that both technical and non-technical audiences can understand.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer"><span>James N Leathers IV · Project Portfolio</span></footer>
+  </div>
+
+  <script src="project-page.js"></script>
+</body>
+</html>

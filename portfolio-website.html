@@ -30,21 +30,21 @@
     </header>
 
     <main class="project-page">
-      <section class="project-hero portfolio-site-hero">
+            <section class="project-hero portfolio-site-hero">
         <div class="project-hero-copy">
           <a class="back-link" href="index.html#projects">← Back to Projects</a>
           <span class="status-label">In Development</span>
           <h1>Portfolio Website</h1>
           <p>
-            Custom dark-mode engineering portfolio built to present technical projects, systems thinking, and professional credibility through a focused aerospace-inspired visual language.
+            A static engineering portfolio built as a digital briefing package: the homepage gives a fast identity signal, while the project pages provide deeper evidence of architecture, implementation, verification, and documentation.
           </p>
           <div class="project-hero-tags">
-            <span>Frontend</span>
-            <span>AI-Assisted Design</span>
+            <span>Static Website</span>
+            <span>GitHub Pages</span>
             <span>HTML / CSS</span>
             <span>JavaScript</span>
-            <span>GitHub Pages Ready</span>
             <span>Technical Writing</span>
+            <span>Cloudflare Analytics</span>
           </div>
         </div>
         <div class="project-hero-visual">
@@ -69,135 +69,270 @@
             <div>
               <h2>Overview</h2>
               <p>
-                This portfolio website is designed as a professional engineering artifact rather than a generic resume page. The goal is to show projects through a systems-first lens: what problem was solved, how the system was structured, what tools were used, and how the work was verified.
+                This portfolio exists because a resume, LinkedIn post, or short verbal explanation cannot fully show the process, difficulty, tradeoffs, or systems thinking behind technical work. A resume can say what was built, but it usually cannot show how the work was structured, why certain decisions were made, or what the builder's standard of technical communication looks like.
               </p>
               <p>
-                The site combines a dark-mode Boeing/Purdue-inspired visual identity with concise technical storytelling. The homepage acts as a high-level portfolio, while the project pages provide deeper breakdowns for individual systems.
+                The site is designed as a communication system for multiple audiences. Recruiters need a quick signal. Hiring managers need evidence. Engineers need enough structure to see whether the thinking is real. The homepage gives the fast overview, and the project pages act as technical appendices.
               </p>
             </div>
             <aside class="project-facts">
               <h3>Project Facts</h3>
               <dl>
-                <div><dt>Status</dt><dd>In Development</dd></div>
-                <div><dt>Primary Goal</dt><dd>Technical credibility</dd></div>
-                <div><dt>Format</dt><dd>Static website</dd></div>
-                <div><dt>Focus</dt><dd>Project documentation</dd></div>
+                <div><dt>Project Type</dt><dd>Static portfolio website</dd></div>
+                <div><dt>Purpose</dt><dd>Technical communication</dd></div>
+                <div><dt>Hosting</dt><dd>GitHub Pages</dd></div>
+                <div><dt>Analytics</dt><dd>Cloudflare Web Analytics</dd></div>
               </dl>
             </aside>
+          </div>
+
+          <div class="portfolio-briefing-flow" aria-label="Portfolio briefing package flow">
+            <div><strong>Homepage</strong><span>Cover page</span></div>
+            <i>→</i>
+            <div><strong>Project Cards</strong><span>Table of contents</span></div>
+            <i>→</i>
+            <div><strong>Breakdown Pages</strong><span>Technical appendices</span></div>
+          </div>
+
+          <div class="portfolio-callout">
+            <strong>Scope point:</strong> the value of the portfolio is not just that it contains projects. The value is that it gives those projects a consistent, inspectable documentation framework.
           </div>
         </div>
 
         <div class="tab-panel" id="problem" role="tabpanel">
           <h2>Problem</h2>
           <p>
-            A resume can list projects, but it does not show how a system works or how engineering decisions were made. A portfolio needs to make technical ability visible without overwhelming the viewer.
+            The problem was not a lack of projects. The problem was that complex engineering work gets flattened when it is forced into a resume bullet, short post, or quick explanation. That format can miss the architecture, tradeoffs, verification work, and communication discipline behind the final result.
           </p>
-          <div class="problem-list">
-            <article><span>01</span><h3>Stand out quickly</h3><p>Recruiters and engineers should understand the technical identity of the site within the first few seconds.</p></article>
-            <article><span>02</span><h3>Show evidence</h3><p>Project cards need to lead into deeper breakdowns instead of functioning as static thumbnails.</p></article>
-            <article><span>03</span><h3>Avoid resume clutter</h3><p>The homepage needs to summarize education, experience, tools, and projects without becoming a wall of text.</p></article>
+
+          <div class="portfolio-problem-flow" aria-label="Problem to outcome flow">
+            <div>Resume flattens complex engineering work</div>
+            <i>→</i>
+            <div>Need to show process, difficulty, and proof</div>
+            <i>→</i>
+            <div>Homepage gives quick identity signal</div>
+            <i>→</i>
+            <div>Project cards summarize each effort</div>
+            <i>→</i>
+            <div>Project pages provide deeper evidence</div>
+          </div>
+
+          <div class="audience-grid">
+            <article>
+              <span>01</span>
+              <h3>Recruiters need signal</h3>
+              <p>The homepage must quickly communicate role fit, technical direction, and professional credibility.</p>
+            </article>
+            <article>
+              <span>02</span>
+              <h3>Hiring managers need evidence</h3>
+              <p>The project pages need to show architecture, implementation decisions, verification, and ownership.</p>
+            </article>
+            <article>
+              <span>03</span>
+              <h3>Engineers need structure</h3>
+              <p>The breakdowns need enough technical detail to show that the systems thinking is real.</p>
+            </article>
           </div>
         </div>
 
         <div class="tab-panel" id="architecture" role="tabpanel">
           <h2>System Architecture</h2>
           <p>
-            The website is structured as a static frontend with reusable sections and standalone project pages. Each project page uses the same tabbed breakdown format so visitors can quickly compare systems without relearning the page layout.
+            At the system level, this is a static website. The browser loads finished HTML, CSS, JavaScript, and assets rather than talking to a custom backend or database. That architecture fits the goal: documentation, presentation, and project evidence without unnecessary server-side complexity.
           </p>
 
-          <div class="architecture-flow portfolio-flow">
-            <div>Homepage</div>
+          <div class="architecture-flow portfolio-system-flow" aria-label="Static website architecture">
+            <div>Repository</div>
             <i>→</i>
-            <div>Featured Project Cards</div>
+            <div>GitHub Pages</div>
             <i>→</i>
-            <div>Project Detail Pages</div>
+            <div>Published Site</div>
             <i>→</i>
-            <div>Technical Breakdown Tabs</div>
+            <div>Visitor Browser</div>
+            <i>→</i>
+            <div>Cloudflare Beacon</div>
+          </div>
+
+          <div class="data-source-map portfolio-table-wrap">
+            <h3>Website System Map</h3>
+            <table>
+              <thead>
+                <tr>
+                  <th>Part of the system</th>
+                  <th>Repository evidence</th>
+                  <th>Why it matters</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Homepage entry point</td>
+                  <td><code>index.html</code></td>
+                  <td>Establishes identity, navigation, profile, featured projects, and first impression.</td>
+                </tr>
+                <tr>
+                  <td>Project detail format</td>
+                  <td><code>portfolio-website.html</code> plus the other project pages</td>
+                  <td>Creates a repeatable structure for explaining technical work.</td>
+                </tr>
+                <tr>
+                  <td>Global visual system</td>
+                  <td><code>styles.css</code></td>
+                  <td>Controls the homepage layout, theme, cards, hero section, and responsive behavior.</td>
+                </tr>
+                <tr>
+                  <td>Project-page visual system</td>
+                  <td><code>project-page.css</code></td>
+                  <td>Reuses the same documentation layout across detailed project pages.</td>
+                </tr>
+                <tr>
+                  <td>Interaction layer</td>
+                  <td><code>script.js</code> and <code>project-page.js</code></td>
+                  <td>Handles smooth scrolling, active navigation, and tab switching.</td>
+                </tr>
+                <tr>
+                  <td>Evidence package</td>
+                  <td><code>assets/</code></td>
+                  <td>Keeps screenshots, logos, cover images, and resume materials organized in the repository.</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
 
           <div class="architecture-notes">
-            <p><strong>Homepage:</strong> presents personal positioning, profile, featured projects, and platforms/tools.</p>
-            <p><strong>Project cards:</strong> act as navigation points into deeper engineering breakdowns.</p>
-            <p><strong>Project pages:</strong> use consistent tabs for overview, architecture, implementation, verification, and lessons learned.</p>
-          </div>
-
-          <div class="service-map">
-            <h3>Content Model</h3>
-            <div class="service-map-grid portfolio-map-grid">
-              <span>Profile</span>
-              <span>Projects</span>
-              <span>Tools</span>
-              <span>Resume</span>
-              <span>LinkedIn</span>
-              <span>Project Tabs</span>
-              <span>Technical Writing</span>
-            </div>
+            <p><strong>Layered reading path:</strong> the homepage supports fast scanning, while project pages support deeper review.</p>
+            <p><strong>Static architecture:</strong> fewer moving parts means lower maintenance, lower cost, and less security exposure.</p>
+            <p><strong>Reusable pattern:</strong> each project page follows a consistent breakdown structure so new projects can be added cleanly.</p>
           </div>
         </div>
 
         <div class="tab-panel" id="tools" role="tabpanel">
           <h2>Tools / Stack</h2>
+          <p>
+            The build is intentionally simple: finished frontend files, a repository-based publishing workflow, and lightweight analytics. Most of the work sits in the HTML structure, CSS visual system, project writing, and review process.
+          </p>
+
+          <div class="data-source-map portfolio-table-wrap">
+            <h3>Build Layers</h3>
+            <table>
+              <thead>
+                <tr>
+                  <th>Layer</th>
+                  <th>Plain-English job</th>
+                  <th>How this project uses it</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>HTML</td><td>Defines what exists on the page</td><td>Sections, headings, buttons, project cards, tabs, links, and content blocks.</td></tr>
+                <tr><td>CSS</td><td>Controls appearance and layout</td><td>Dark theme, spacing, cards, hero section, typography, and responsive behavior.</td></tr>
+                <tr><td>JavaScript</td><td>Adds small amounts of behavior</td><td>Smooth scrolling, active navigation, and project-page tab switching.</td></tr>
+                <tr><td>Assets</td><td>Supplies evidence and visuals</td><td>Screenshots, logos, headshot, cover images, and resume PDF.</td></tr>
+                <tr><td>Analytics</td><td>Measures traffic after deployment</td><td>Cloudflare Web Analytics beacon script embedded in the page head.</td></tr>
+              </tbody>
+            </table>
+          </div>
+
           <div class="stack-grid">
-            <article><h3>HTML</h3><p>Semantic page structure for the homepage, navigation, project cards, and project detail pages.</p></article>
-            <article><h3>CSS</h3><p>Dark-mode styling, responsive layout, card system, hero sections, and portfolio visual identity.</p></article>
-            <article><h3>JavaScript</h3><p>Tab switching behavior for project pages and lightweight interactive functionality.</p></article>
-            <article><h3>ChatGPT</h3><p>Used as an AI-assisted design and implementation partner for layout iteration, copy refinement, and page structure.</p></article>
-            <article><h3>Image Generation</h3><p>Used for concept imagery and project cover visuals where appropriate.</p></article>
-            <article><h3>GitHub</h3><p>Planned repository and static-site deployment workflow for version control and public hosting.</p></article>
+            <article><h3>GitHub Pages</h3><p>Static hosting for the public portfolio site directly from the repository.</p></article>
+            <article><h3>Cloudflare Web Analytics</h3><p>Privacy-friendly page engagement and performance visibility after deployment.</p></article>
+            <article><h3>ChatGPT</h3><p>Used for design iteration, copy refinement, layout review, and implementation support.</p></article>
+            <article><h3>Image Generation</h3><p>Used for concept visuals and project cover imagery where appropriate.</p></article>
           </div>
         </div>
 
         <div class="tab-panel" id="role" role="tabpanel">
           <h2>My Role</h2>
           <p>
-            I defined the site goals, selected the content structure, reviewed each visual direction, provided project information, corrected technical inaccuracies, and iteratively refined the design until it matched the professional positioning I wanted.
+            My role was to define the technical direction, decide what the portfolio needed to communicate, provide project context, review the design, correct inaccuracies, and control the final quality. AI tools supported iteration, but the project direction, project information, technical judgment, and approval decisions stayed with me.
           </p>
           <div class="role-list">
             <span>Technical direction</span>
             <span>Content strategy</span>
+            <span>Systems framing</span>
             <span>Design review</span>
-            <span>Project documentation</span>
             <span>Frontend implementation</span>
-            <span>AI-assisted iteration</span>
+            <span>Project documentation</span>
             <span>Quality control</span>
+            <span>Deployment verification</span>
+          </div>
+
+          <div class="decision-card">
+            <h3>Ownership Model</h3>
+            <p>
+              The site explicitly treats AI as a tool, not as the owner of the work. The important project decisions came from human review: what to include, what to remove, what to correct, and how to keep the technical story accurate.
+            </p>
           </div>
         </div>
 
         <div class="tab-panel" id="implementation" role="tabpanel">
           <h2>Implementation</h2>
-          <div class="step-list">
-            <article><span>01</span><h3>Defined the technical identity</h3><p>Shifted the site away from a resume dump and toward a systems-first engineering portfolio.</p></article>
-            <article><span>02</span><h3>Built the homepage</h3><p>Created the hero, profile, project cards, tool grid, and footer with a dark aerospace-inspired theme.</p></article>
-            <article><span>03</span><h3>Added project breakdown pages</h3><p>Implemented reusable project page tabs for overview, architecture, stack, role, implementation, verification, and lessons learned.</p></article>
-            <article><span>04</span><h3>Refined visuals and content</h3><p>Adjusted typography, spacing, button hierarchy, images, project tags, and section flow based on review.</p></article>
+          <p>
+            The implementation was organized around layered communication. The homepage introduces the identity and project set, while the project pages use a repeatable tab structure so each system can be explained in the same rhythm: overview, problem, architecture, tools, role, implementation, verification, and lessons learned.
+          </p>
+
+          <div class="step-list portfolio-implementation-list">
+            <article><span>01</span><h3>Defined the communication problem</h3><p>Shifted the site away from a resume dump and toward a systems-first briefing package.</p></article>
+            <article><span>02</span><h3>Built the homepage hierarchy</h3><p>Structured the page around profile, project evidence, tools, and direct resume/LinkedIn access.</p></article>
+            <article><span>03</span><h3>Created reusable project pages</h3><p>Used the same tabbed framework across project breakdowns to keep the documentation consistent.</p></article>
+            <article><span>04</span><h3>Refined mobile behavior</h3><p>Added mobile-specific CSS so the same URL remains readable on phones and desktop screens.</p></article>
+            <article><span>05</span><h3>Deployed through GitHub Pages</h3><p>Published the site from the repository root using a static hosting workflow.</p></article>
+            <article><span>06</span><h3>Added analytics visibility</h3><p>Integrated Cloudflare Web Analytics to observe traffic and page engagement after deployment.</p></article>
+          </div>
+
+          <div class="architecture-flow portfolio-build-flow" aria-label="Implementation pipeline">
+            <div>Project Content</div><i>→</i><div>HTML Structure</div><i>→</i><div>CSS Visual System</div><i>→</i><div>JavaScript Interactions</div><i>→</i><div>Browser Render</div>
           </div>
         </div>
 
         <div class="tab-panel" id="testing" role="tabpanel">
           <h2>Testing / Verification</h2>
           <p>
-            Verification focused on confirming that the site communicates clearly, navigates correctly, and presents projects in a professional way.
+            Verification focused on whether the site communicates clearly, navigates correctly, works on different screen sizes, and presents project evidence without overstating the work.
           </p>
+
           <div class="verification-grid">
-            <article><h3>Navigation checks</h3><p>Verified top navigation anchors and project card links point to the correct sections or pages.</p></article>
-            <article><h3>Layout review</h3><p>Checked spacing, text hierarchy, button clarity, image cropping, and section balance through repeated screenshot review.</p></article>
-            <article><h3>Content accuracy</h3><p>Reviewed project descriptions to avoid overstating work and to keep technical descriptions aligned with the actual systems.</p></article>
-            <article><h3>Responsive behavior</h3><p>Used flexible grids and media queries so the site can collapse more cleanly on smaller screens.</p></article>
+            <article><h3>Navigation</h3><p>Checked homepage anchors, project-card links, back links, resume access, and LinkedIn access.</p></article>
+            <article><h3>Responsive layout</h3><p>Tested desktop and phone layouts, then adjusted mobile header behavior, tab wrapping, text scaling, and section spacing.</p></article>
+            <article><h3>Interaction state</h3><p>Verified tab switching and active navigation behavior so the site feels guided instead of static.</p></article>
+            <article><h3>Accessibility semantics</h3><p>Used tablist, tab, tabpanel, and aria-selected patterns to keep interaction state more understandable to assistive technologies.</p></article>
+            <article><h3>Content accuracy</h3><p>Reviewed project language to avoid overstating work and to keep technical descriptions aligned with the actual systems.</p></article>
+            <article><h3>Deployment</h3><p>Confirmed the repository structure works with GitHub Pages and that analytics data reaches Cloudflare after launch.</p></article>
           </div>
         </div>
 
         <div class="tab-panel" id="learned" role="tabpanel">
           <h2>What I Learned</h2>
           <p>
-            This project showed that a portfolio is not just a design task. It is a technical communication problem: the site needs to help a viewer understand what was built, why it matters, and how the work was approached.
+            This project reinforced that a portfolio is not only a design task. It is a technical communication problem. The site has to help a viewer understand what was built, why it matters, how it was structured, and whether the builder can communicate work in a way that survives review.
           </p>
-          <div class="learned-callouts">
-            <article><h3>Less text is stronger</h3><p>Short, structured project summaries are more effective than trying to fit a full resume onto the homepage.</p></article>
-            <article><h3>Project pages need structure</h3><p>A consistent breakdown format makes it easier for viewers to evaluate different projects quickly.</p></article>
-            <article><h3>Design needs technical review</h3><p>Visuals only work when the architecture and terminology are technically accurate.</p></article>
+
+          <div class="data-source-map portfolio-table-wrap">
+            <h3>Reviewer Value</h3>
+            <table>
+              <thead>
+                <tr>
+                  <th>What a reviewer wants to know</th>
+                  <th>What the website shows</th>
+                  <th>Why that matters</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>Can this person structure ambiguity?</td><td>The site turns an unclear communication problem into a layered information system.</td><td>Shows systems thinking, not just coding.</td></tr>
+                <tr><td>Can this person communicate technical work clearly?</td><td>Homepage summary plus repeatable deep-dive sections.</td><td>Shows technical writing and audience awareness.</td></tr>
+                <tr><td>Can this person make tradeoffs?</td><td>Static architecture, minimal JavaScript, reusable templates.</td><td>Shows judgment instead of feature chasing.</td></tr>
+                <tr><td>Can this person deploy what they build?</td><td>Repository-aligned hosting model and public publishing path.</td><td>Shows end-to-end ownership.</td></tr>
+                <tr><td>Can this person verify and refine?</td><td>Testing, mobile updates, analytics, and in-development posture.</td><td>Shows discipline and honest iteration.</td></tr>
+                <tr><td>Can this person use AI responsibly?</td><td>AI-assisted design support with human-owned direction and quality control.</td><td>Shows tool fluency without surrendering judgment.</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="closing-note">
+            A resume can say that projects happened. This website gives a hiring team a visible sample of how the work is framed, organized, reviewed, and delivered.
           </div>
         </div>
       </section>
+
     </main>
 
     <footer class="footer"><span>James N Leathers IV · Project Portfolio</span></footer>

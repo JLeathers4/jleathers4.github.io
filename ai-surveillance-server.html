@@ -118,10 +118,10 @@
             The real engineering problem was not simply “How do I run a few services?” It was “How do I design a local system that avoids vendor lock-in, keeps responsibilities separated, stays observable, and can be maintained without depending on a confusing collection of third-party apps?”
           </p>
           <div class="problem-list ai-problem-list">
-            <article><span>01</span><h3>Fragmented tools</h3><p>Separate camera, automation, remote-access, and dashboard apps create duplicated setup work and inconsistent user experiences.</p></article>
-            <article><span>02</span><h3>Paid or limited features</h3><p>Commercial “easy” systems often hide advanced controls, automation logic, or remote access behind subscriptions or locked ecosystems.</p></article>
-            <article><span>03</span><h3>Reliability gaps</h3><p>Cloud-dependent or loosely connected systems can fail in ways that are hard to diagnose because the user cannot see the full pipeline.</p></article>
-            <article><span>04</span><h3>Systems understanding</h3><p>Building the platform myself made the architecture more transparent: firewall boundary, Docker services, events, devices, cameras, and dashboards.</p></article>
+            <article><span>#1</span><h3>Fragmented tools</h3><p>Separate camera, automation, remote-access, and dashboard apps create duplicated setup work and inconsistent user experiences.</p></article>
+            <article><span>#2</span><h3>Paid or limited features</h3><p>Commercial “easy” systems often hide advanced controls, automation logic, or remote access behind subscriptions or locked ecosystems.</p></article>
+            <article><span>#3</span><h3>Reliability gaps</h3><p>Cloud-dependent or loosely connected systems can fail in ways that are hard to diagnose because the user cannot see the full pipeline.</p></article>
+            <article><span>#4</span><h3>Systems understanding</h3><p>Building the platform myself made the architecture more transparent: firewall boundary, Docker services, events, devices, cameras, and dashboards.</p></article>
           </div>
         </div>
 
@@ -232,10 +232,10 @@
             I owned the project end to end: boundary definition, platform selection, service deployment, integration, troubleshooting, verification, and recruiter-safe documentation. The strongest part of the work was not just getting services to run. It was deciding what each part of the system should be responsible for and then building interfaces that made the whole platform understandable.
           </p>
           <div class="step-list ai-role-steps">
-            <article><span>01</span><h3>Specification</h3><p>Defined the two-box split, the major service responsibilities, and what the user-facing dashboards needed to communicate.</p></article>
-            <article><span>02</span><h3>Integration</h3><p>Connected surveillance, automation, messaging, Zigbee, and dashboard layers so they behaved like one platform.</p></article>
-            <article><span>03</span><h3>Implementation</h3><p>Stood up the hosts, deployed the Docker stack, added Coral acceleration, and organized the service interactions.</p></article>
-            <article><span>04</span><h3>Verification</h3><p>Validated routing, container health, camera paths, UI visibility, and restart behavior instead of trusting the stack blindly.</p></article>
+            <article><span>#1</span><h3>Specification</h3><p>Defined the two-box split, the major service responsibilities, and what the user-facing dashboards needed to communicate.</p></article>
+            <article><span>#2</span><h3>Integration</h3><p>Connected surveillance, automation, messaging, Zigbee, and dashboard layers so they behaved like one platform.</p></article>
+            <article><span>#3</span><h3>Implementation</h3><p>Stood up the hosts, deployed the Docker stack, added Coral acceleration, and organized the service interactions.</p></article>
+            <article><span>#4</span><h3>Verification</h3><p>Validated routing, container health, camera paths, UI visibility, and restart behavior instead of trusting the stack blindly.</p></article>
           </div>
           <div class="role-list">
             <span>Systems architecture</span>
@@ -255,12 +255,12 @@
             The implementation followed an ordered bring-up sequence rather than an ad hoc install process. First, I established the network boundary. Then I stood up the Debian host. After that, I deployed the shared service layer, connected the surveillance stack, and finally built the user-facing operational views on top of the working back end.
           </p>
           <div class="step-list ai-implementation-steps">
-            <article><span>01</span><h3>Define the boundary</h3><p>Placed WAN-facing security and routing duties on a dedicated OPNsense firewall appliance.</p></article>
-            <article><span>02</span><h3>Stand up the host</h3><p>Used a Beelink Debian system as the stable application host for containerized services.</p></article>
-            <article><span>03</span><h3>Containerize the stack</h3><p>Grouped services under a Docker-based deployment model for cleaner updates, restarts, and maintenance.</p></article>
-            <article><span>04</span><h3>Connect the data backbone</h3><p>Brought up Home Assistant, MQTT, Zigbee2MQTT, ESPHome, and Node-RED as the integration layer.</p></article>
-            <article><span>05</span><h3>Add the surveillance path</h3><p>Connected cameras into Frigate and attached Coral AI for hardware-accelerated object detection.</p></article>
-            <article><span>06</span><h3>Build usable interfaces</h3><p>Exposed the system through operations dashboards, Frigate views, and the Smart Mirror’s specialized UI.</p></article>
+            <article><span>#1</span><h3>Define the boundary</h3><p>Placed WAN-facing security and routing duties on a dedicated OPNsense firewall appliance.</p></article>
+            <article><span>#2</span><h3>Stand up the host</h3><p>Used a Beelink Debian system as the stable application host for containerized services.</p></article>
+            <article><span>#3</span><h3>Containerize the stack</h3><p>Grouped services under a Docker-based deployment model for cleaner updates, restarts, and maintenance.</p></article>
+            <article><span>#4</span><h3>Connect the data backbone</h3><p>Brought up Home Assistant, MQTT, Zigbee2MQTT, ESPHome, and Node-RED as the integration layer.</p></article>
+            <article><span>#5</span><h3>Add the surveillance path</h3><p>Connected cameras into Frigate and attached Coral AI for hardware-accelerated object detection.</p></article>
+            <article><span>#6</span><h3>Build usable interfaces</h3><p>Exposed the system through operations dashboards, Frigate views, and the Smart Mirror’s specialized UI.</p></article>
           </div>
 
           <div class="implementation-callout">

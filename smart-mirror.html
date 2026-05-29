@@ -107,9 +107,9 @@
             I approached the project from a systems-first perspective. The question was not simply, “Can I make a dashboard?” The better question was, “Can I build a reliable information pipeline that collects multiple external data sources, handles missing data, and presents the final result in a useful way?”
           </p>
           <div class="problem-list">
-            <article><span>01</span><h3>Fragmented inputs</h3><p>Weather, calendar, AQI, fuel, and commute information all live in separate systems.</p></article>
-            <article><span>02</span><h3>Different source behavior</h3><p>JSON APIs, HTML scraping, token-based calendar access, and local-time formats all require different handling.</p></article>
-            <article><span>03</span><h3>Graceful failure</h3><p>The mirror should keep running when one service is unavailable, expired, or still being configured.</p></article>
+            <article><span>#1</span><h3>Fragmented inputs</h3><p>Weather, calendar, AQI, fuel, and commute information all live in separate systems.</p></article>
+            <article><span>#2</span><h3>Different source behavior</h3><p>JSON APIs, HTML scraping, token-based calendar access, and local-time formats all require different handling.</p></article>
+            <article><span>#3</span><h3>Graceful failure</h3><p>The mirror should keep running when one service is unavailable, expired, or still being configured.</p></article>
           </div>
         </div>
 
@@ -183,10 +183,10 @@
           </p>
 
           <div class="step-list">
-            <article><span>01</span><h3>Weather branch</h3><p>Builds METAR, NWS forecast, sunrise/sunset, and AQI requests, then parses results into display-ready objects.</p></article>
-            <article><span>02</span><h3>Forecast filtering</h3><p>Filters expired periods so the dashboard shows the next 16 active or upcoming hours instead of stale data.</p></article>
-            <article><span>03</span><h3>Calendar branch</h3><p>Builds Microsoft Graph calendarView requests and shows a setup/authentication state when the token is missing or expired.</p></article>
-            <article><span>04</span><h3>Fuel branch</h3><p>Scrapes AAA Washington fuel pricing, extracts Seattle-Bellevue-Everett premium fuel average, and formats the daily delta.</p></article>
+            <article><span>#1</span><h3>Weather branch</h3><p>Builds METAR, NWS forecast, sunrise/sunset, and AQI requests, then parses results into display-ready objects.</p></article>
+            <article><span>#2</span><h3>Forecast filtering</h3><p>Filters expired periods so the dashboard shows the next 16 active or upcoming hours instead of stale data.</p></article>
+            <article><span>#3</span><h3>Calendar branch</h3><p>Builds Microsoft Graph calendarView requests and shows a setup/authentication state when the token is missing or expired.</p></article>
+            <article><span>#4</span><h3>Fuel branch</h3><p>Scrapes AAA Washington fuel pricing, extracts Seattle-Bellevue-Everett premium fuel average, and formats the daily delta.</p></article>
           </div>
 
           <div class="implementation-callout">
